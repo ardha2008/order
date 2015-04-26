@@ -15,9 +15,9 @@
         <div class="signup-form"><!--sign up form-->
 						<h2>Lengkapi identitas anda</h2>
 						<?php echo form_open('konfirmasi') ?>
-                            <input type="hidden" value="<?php $detail->idproduk ?>" name="idproduk" />
+                            <input type="hidden" value="<?php echo $detail->idproduk ?>" name="idproduk" />
 							<input type="text" name="nama" placeholder="Name"/>
-							<input type="email" placeholder="Email"/>
+							<input type="email" name="email" placeholder="Email"/>
 							<input type="text" placeholder="Telepon" name="telp"/>
 							<input type="text" placeholder="Alamat lengkap" name="alamat"/>
                             <button type="submit" name="order" class="btn btn-default">Order</button>
