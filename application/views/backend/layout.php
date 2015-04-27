@@ -155,12 +155,12 @@ $active_menu=$active_menu[1];
                     <?php } ?>
                     
                     <?php if($this->session->userdata('hak_akses')==0){?>
-                        <li class="<?php if($active_menu=='tasklist')echo 'active' ?>"><a href="<?php echo site_url('backend/tasklist') ?>"><i class="fa fa-th fa-fw">
+                        <li class="<?php if($active_menu=='list_kerja')echo 'active' ?>"><a href="<?php echo site_url('backend/list_kerja') ?>"><i class="fa fa-th fa-fw">
                             <div class="icon-bg bg-violet"></div>
                         </i><span class="menu-title">Task List</span></a>
                         </li>   
                         
-                        <li><a href="<?php echo site_url('backend/users/riwayat') ?>"><i class="fa fa-file-o fa-fw">
+                        <li><a href="<?php echo site_url('backend/list_kerja/riwayat') ?>"><i class="fa fa-file-o fa-fw">
                             <div class="icon-bg bg-yellow"></div>
                         </i><span class="menu-title">Riwayat</span></a> 
                         </li> 

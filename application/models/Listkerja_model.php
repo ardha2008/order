@@ -11,7 +11,7 @@
                $pegawai_queue=$pegawai_queue[0]->idpegawai;
                $idpegawai=$pegawai_queue;                        
             }else{
-                $pegawai_low= $this->db->query("select idpegawai,count(*) as queue from list_kerja where status=0 group by idpegawai order by queue ASC limit 1");
+                $pegawai_low= $this->db->query("select idpegawai,count(*) as queue from list_kerja where status_kerja=0 group by idpegawai order by queue ASC limit 1");
                 foreach($pegawai_low->result() as $result){
                     
                 }
@@ -21,7 +21,7 @@
             $data=array(
             'idpegawai' =>$idpegawai,
             'idorder'  =>$idorder,
-            'status'    =>0
+            'status_kerja'    =>0
             );
             $this->db->insert('list_kerja',$data);
             
