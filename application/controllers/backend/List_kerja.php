@@ -13,6 +13,18 @@
             $this->load->view('backend/layout',$data);
         }
         
+        function riwayat(){
+            $this->load->model('Users_model');
+            $idpegawai=$this->Users_model->getLogin('idpegawai');
+            
+            $query=$this->db->query("select * from list_kerja a, `order` b, produk c where a.idorder=b.idorder and b.idproduk=c.idproduk and idpegawai='$idpegawai'  order by tanggal DESC");
+            
+            $data['data_riwayat']=$query->result();
+            $data['pages']='backend/list_kerja/riwayat';
+            $this->load->view('backend/layout',$data);  
+                            
+        }
+        
         function finish($idorder=null){
             if($idorder==null) redirect('backend/list_kerja');
             

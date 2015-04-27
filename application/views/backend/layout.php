@@ -160,10 +160,7 @@ $active_menu=$active_menu[1];
                         </i><span class="menu-title">Task List</span></a>
                         </li>   
                         
-                        <li><a href="<?php echo site_url('backend/list_kerja/riwayat') ?>"><i class="fa fa-file-o fa-fw">
-                            <div class="icon-bg bg-yellow"></div>
-                        </i><span class="menu-title">Riwayat</span></a> 
-                        </li> 
+                         
                     <?php } ?>
 
                     
