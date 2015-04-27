@@ -1,4 +1,5 @@
 <div id="sum_box" class="row mbl">
+                        <?php if($this->session->userdata('hak_akses')==1){?>
                             <div class="col-sm-6 col-md-3">
                                 <div class="panel profit db mbm">
                                     <div class="panel-body">
@@ -27,21 +28,6 @@
                             </div>
                             
                             <div class="col-sm-6 col-md-3">
-                                <div class="panel task db mbm">
-                                    <div class="panel-body">
-                                        <p class="icon">
-                                            <i class="icon fa fa-signal"></i>
-                                        </p>
-                                        <h4 class="value">
-                                            <span>215</span></h4>
-                                        <p class="description">
-                                            Task completed</p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-6 col-md-3">
                                 <div class="panel visit db mbm">
                                     <div class="panel-body">
                                         <p class="icon">
@@ -63,6 +49,22 @@
                                         <h4 class="value">
                                             <span><?php echo $jumlah_konfirmasi ?></span></h4>
                                         <p class="description">Konfirmasi baru</p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                            
+                            <div class="col-sm-6 col-md-3">
+                                <div class="panel task db mbm">
+                                    <div class="panel-body">
+                                        <p class="icon">
+                                            <i class="icon fa fa-signal"></i>
+                                        </p>
+                                        <h4 class="value">
+                                            <span>215</span></h4>
+                                        <p class="description">
+                                            Task completed</p>
+                                        
                                     </div>
                                 </div>
                             </div>

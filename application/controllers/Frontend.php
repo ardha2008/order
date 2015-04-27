@@ -81,10 +81,7 @@ class Frontend extends CI_Controller{
         $this->load->view('frontend/layout',$data);
     }
     
-    function tes(){
-        $data['pages']='frontend/complete';
-        $this->load->view('frontend/layout',$data);
-    }
+
 }
 
 ?>
