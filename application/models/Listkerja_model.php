@@ -2,7 +2,7 @@
     
     class Listkerja_model extends CI_Model{
         
-        function queue($idproduk=null){
+        function queue($idorder=null){
             
             $pegawai_queue=$this->db->query("select idpegawai from pegawai where hak_akses=0 and idpegawai not in (select idpegawai from list_kerja) limit 1");
             
@@ -20,10 +20,12 @@
             
             $data=array(
             'idpegawai' =>$idpegawai,
-            'idproduk'  =>$idproduk,
+            'idorder'  =>$idorder,
             'status'    =>0
             );
             $this->db->insert('list_kerja',$data);
+            
+            return true;
         }
     }
 

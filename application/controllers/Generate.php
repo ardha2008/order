@@ -52,7 +52,6 @@ class Generate extends CI_Controller{
             $data=array(
             'idorder'=>random_string('numeric',5),
             'idproduk'=>$idproduk,
-            'idpegawai'=>1,
             'idcustomer'=>$idcustomer,
             'status'=>rand(0,1)
             );

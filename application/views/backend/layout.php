@@ -7,7 +7,7 @@ $active_menu=$active_menu[1];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Dashboard | Dashboard</title>
+    <title><?php echo ucwords($active_menu) ?> - Backend</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,7 +138,17 @@ $active_menu=$active_menu[1];
                         </i><span class="menu-title">Master Customer</span></a>
                         </li>
                         
-                        <li><a href="Forms.html"><i class="fa fa-book fa-fw">
+                        <li class="<?php if($active_menu=='order')echo 'active' ?>"><a href="<?php echo site_url('backend/order') ?>"><i class="fa fa-shopping-cart fa-fw">
+                            <div class="icon-bg bg-red"></div>
+                        </i><span class="menu-title"> Order</span></a>
+                        </li>
+                        
+                        <li class="<?php if($active_menu=='konfirmasi')echo 'active' ?>"><a href="<?php echo site_url('backend/konfirmasi') ?>"><i class="fa fa-calendar fa-fw">
+                            <div class="icon-bg bg-red"></div>
+                        </i><span class="menu-title"> Konfirmasi</span></a>
+                        </li>
+                        
+                        <li><a href=""><i class="fa fa-book fa-fw">
                             <div class="icon-bg bg-violet"></div>
                         </i><span class="menu-title">Report</span></a>
                         </li>

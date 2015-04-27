@@ -70,7 +70,6 @@ class Frontend extends CI_Controller{
         'idorder'=>$id_order,
         'idcustomer'=>$data_finish['idcustomer'],
         'idproduk'=>$data_finish['idproduk'],
-        'idpegawai'=>1
         );
         
         $this->db->insert('order',$data_order);
@@ -78,6 +77,29 @@ class Frontend extends CI_Controller{
         $data['idorder']=$id_order;
         $data['pages']='frontend/complete';
         
+        $this->load->view('frontend/layout',$data);
+    }
+    
+    function pembayaran(){
+
+        if(isset($_POST['konfirmasi'])){
+            $konfirmasi=array(
+            'idorder'=>$this->input->post('idorder'),
+            'nama'=>$this->input->post('nama'),
+            'nominal'=>$this->input->post('nominal'),
+            'tujuan'=>$this->input->post('tujuan'),
+            );
+            
+            $this->db->insert('konfirmasi',$konfirmasi);
+            $this->session->set_tempdata('success',true,4);
+        }
+        
+        $data['rekening']=array(
+        'BCA - 123456789 a.n Ibad Almuklas',
+        'Mandiri - 123456789 a.n Nursokeh'
+        );
+        
+        $data['pages'] = 'frontend/pembayaran';
         $this->load->view('frontend/layout',$data);
     }
     

@@ -3,6 +3,15 @@
 
 class Order_model extends CI_Model{
     
+    function getAll($status=1){
+        $query=$this->db->query("select * from `order` a , customer b, produk c where a.idcustomer=b.idcustomer and a.idproduk=c.idproduk order by tgl_order DESC");
+        return $query->result();
+    }
+    
+    function getOne($idorder){
+        $query=$this->db->query("select * from `order` a , customer b, produk c where a.idorder='$idorder' and a.idcustomer=b.idcustomer and a.idproduk=c.idproduk order by tgl_order DESC");
+        return $query->result();
+    }
     
     function check($idorder){
         
