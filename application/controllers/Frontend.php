@@ -7,11 +7,12 @@ class Frontend extends CI_Controller{
         parent::__construct();
         
         $this->load->model('Produk_model');
+        $data['sidebar']=$this->Produk_model->getLast(10);
     }
     
     function index(){
-        $data['produk'] = $this->Produk_model->getLast(10);
         
+        $data['produk'] = $this->Produk_model->getLast(10);
         $data['pages']  = 'frontend/produk';
         $this->load->view('frontend/layout',$data);
     }
@@ -61,6 +62,7 @@ class Frontend extends CI_Controller{
         'telp'=>$data_finish['telp'],
         );
         
+        
         $this->db->insert('customer',$data_customer);
         
         $this->load->helper('string');
@@ -74,10 +76,14 @@ class Frontend extends CI_Controller{
         
         $this->db->insert('order',$data_order);
         
+        
+        
         $data['idorder']=$id_order;
         $data['pages']='frontend/complete';
         
         $this->load->view('frontend/layout',$data);
+        
+        $this->email($data_customer['email'],$id_order);
     }
     
     function pembayaran(){
@@ -103,6 +109,47 @@ class Frontend extends CI_Controller{
         $this->load->view('frontend/layout',$data);
     }
     
+    function cek(){
+        
+        if(!isset($_POST['cek']))redirect('');
+        
+        $this->load->model('Order_model');
+        
+        $id=$this->input->post('idorder');
+        $query=$this->Order_model->check($id);
+        
+        if($query->num_rows()>0){
+           $data['detail_order']=$query->result(); 
+        }else{
+            $data['detail_order']=false;
+        }
+        
+        
+        $data['pages']= 'frontend/cek';
+        $this->load->view('frontend/layout',$data);
+    }
+    
+    function email($email,$idorder){
+        $this->load->library('email');
+        
+        $this->email->initialize(array(
+          'protocol' => 'smtp',
+          'smtp_host' => 'mail.ardha.web.id',
+          'smtp_user' => 'herdianto@ardha.web.id',
+          'smtp_pass' => 'ardhaherdianto',
+          'smtp_port' => 465,
+          'crlf' => "\r\n",
+          'newline' => "\r\n"
+        ));
+
+        $this->email->from('billing@ardha.web.id', 'Billing Information');
+        $this->email->to($email);
+        
+        $this->email->subject('Konfirmasi Pemesanan');
+        $this->email->message("Kode pemesanan anda adalah $idorder");
+        
+        $this->email->send();
+    }
 
 }
 

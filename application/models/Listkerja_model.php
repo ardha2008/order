@@ -27,6 +27,16 @@
             
             return true;
         }
+        
+        function jumlah($status){
+            
+            $this->load->model('Users_model');
+            $idpegawai=$this->Users_model->getLogin('idpegawai');   
+
+            $query=$this->db->where('idpegawai',$idpegawai)->where('status_kerja',$status)->order_by('tanggal','DESC')->get('list_kerja');
+            return $query->num_rows();            
+          
+        }
     }
 
 ?>

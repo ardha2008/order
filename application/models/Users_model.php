@@ -1,6 +1,7 @@
 <?php 
 
     class Users_model extends CI_Model{
+    
         
         function login($username,$password){
             $this->db->where('username',$username);

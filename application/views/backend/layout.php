@@ -31,18 +31,7 @@ $active_menu=$active_menu[1];
 </head>
 <body>
     <div>
-        <!--BEGIN THEME SETTING-->
-        <div id="theme-setting">
-            <a href="#" data-toggle="dropdown" data-step="1" data-intro="&lt;b&gt;Many styles&lt;/b&gt; and &lt;b&gt;colors&lt;/b&gt; be created for you. Let choose one and enjoy it!"
-                data-position="left" class="btn-theme-setting"><i class="fa fa-cog"></i></a>
-            <div class="content-theme-setting">
-                <select id="list-style" class="form-control">
-                    <option value="style1">Flat Squared style</option>
-                    <option value="style2">Flat Rounded style</option>
-                    <option value="style3" selected="selected">Flat Border style</option>
-                </select>
-            </div>
-        </div>
+        
         <!--END THEME SETTING-->
         <!--BEGIN BACK TO TOP-->
         <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
@@ -52,7 +41,7 @@ $active_menu=$active_menu[1];
             <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
                 <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">SIMPENAN</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
+                <a id="logo" href="<?php echo site_url('/') ?>" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">E-TaskList</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
             <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
                 
                 
@@ -133,7 +122,7 @@ $active_menu=$active_menu[1];
                         </i><span class="menu-title">Master Pegawai</span></a>
                         </li>
                     
-                        <li class="<?php if($active_menu=='customer')echo 'active' ?>"><a href="DataGrid.html"><i class="fa fa-database fa-fw">
+                        <li class="<?php if($active_menu=='customer')echo 'active' ?>"><a href="<?php echo site_url('backend/customer') ?>"><i class="fa fa-database fa-fw">
                             <div class="icon-bg bg-red"></div>
                         </i><span class="menu-title">Master Customer</span></a>
                         </li>
@@ -162,13 +151,29 @@ $active_menu=$active_menu[1];
                         
                          
                     <?php } ?>
-
                     
-                    <li><a href="Email.html"><i class="fa fa-envelope-o">
-                        <div class="icon-bg bg-primary"></div>
-                    </i><span class="menu-title">Transaksi Keuangan</span></a>
-                      
-                    </li>
+                    <?php if($this->session->userdata('hak_akses')==2){?>
+                        
+                    <li class="<?php if($active_menu=='produk') echo 'active' ?>"><a href="<?php echo site_url('backend/produk') ?>"><i class="fa fa-database fa-fw">
+                            <div class="icon-bg bg-red"></div>
+                        </i><span class="menu-title">Master Produk</span></a>
+                        </li>
+                    
+                        <li class="<?php if($active_menu=='pegawai')echo 'active' ?>"><a href="<?php echo site_url('backend/pegawai') ?>"><i class="fa fa-database fa-fw">
+                            <div class="icon-bg bg-red"></div>
+                        </i><span class="menu-title">Master Pegawai</span></a>
+                        </li>
+                    
+                        <li class="<?php if($active_menu=='customer')echo 'active' ?>"><a href="<?php echo site_url('backend/customer') ?>"><i class="fa fa-database fa-fw">
+                            <div class="icon-bg bg-red"></div>
+                        </i><span class="menu-title">Master Customer</span></a>
+                        </li>
+                        
+                        <li class="<?php if($active_menu=='users')echo 'active' ?>"><a href="<?php echo site_url('backend/users') ?>"><i class="fa fa-users fa-fw">
+                            <div class="icon-bg bg-violet"></div>
+                        </i><span class="menu-title">Reset Password</span></a>
+                        </li>
+                    <?php } ?>
                     
                 </ul>
             </div>

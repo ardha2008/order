@@ -53,19 +53,39 @@
                                 </div>
                             </div>
                         <?php } ?>
+                        
+                        <?php if($this->session->userdata('hak_akses')==0){?>
+                            <div class="col-sm-6 col-md-3">
+                                <a href="<?php echo site_url('backend/list_kerja') ?>">
+                                    <div class="panel task db mbm">
+                                        <div class="panel-body">
+                                            <p class="icon">
+                                                <i class="icon fa fa-signal"></i>
+                                            </p>
+                                            <h4 class="value">
+                                                <span><?php echo $belum_dikerjakan ?></span></h4>
+                                            <p class="description">
+                                                Antrian</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                             
                             <div class="col-sm-6 col-md-3">
+                                <a href="<?php echo site_url('backend/list_kerja/riwayat') ?>">
                                 <div class="panel task db mbm">
                                     <div class="panel-body">
                                         <p class="icon">
                                             <i class="icon fa fa-signal"></i>
                                         </p>
                                         <h4 class="value">
-                                            <span>215</span></h4>
+                                            <span><?php echo $selesai_dikerjakan ?></span></h4>
                                         <p class="description">
                                             Task completed</p>
-                                        
                                     </div>
                                 </div>
+                                </a>
                             </div>
+                        <?php } ?>
+                            
                         </div>

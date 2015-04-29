@@ -13,6 +13,7 @@
             $this->load->view('backend/layout',$data);
         }
         
+        
         function riwayat(){
             $this->load->model('Users_model');
             $idpegawai=$this->Users_model->getLogin('idpegawai');

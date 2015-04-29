@@ -2,9 +2,9 @@
     <div class="product-image-wrapper">
         <div class="single-products">
 				<div class="productinfo text-center">
-				    <img src="<?php echo base_url('assets/frontend')?>/images/shop/product12.jpg" alt="" />
+				    <img src="<?php echo base_url('assets/produk/'.$detail->image)?>" alt="" />
 				        <h2>Rp. <?php echo number_format($detail->harga,0,',','.') ?></h2>
-				            <p>Easy Polo Black Edition</p>
+				            <p><?php echo $detail->nama ?></p>
                 </div>							
         </div>
         

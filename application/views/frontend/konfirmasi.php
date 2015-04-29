@@ -25,7 +25,7 @@
     					<tbody>
     						<tr>
     							<td class="cart_product">
-    								<a href=""><img src="<?php echo base_url('assets/frontend') ?>/images/cart/one.png" alt=""></a>
+    								<a href=""><img width="100" height="100" src="<?php echo base_url('assets/produk/'.$produk->image) ?>" alt=""></a>
     							</td>
     							<td class="cart_description">
     								<h4><?php echo $produk->nama ?></h4>

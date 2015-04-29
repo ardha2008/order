@@ -18,7 +18,11 @@ class Dashboard extends CI_Controller{
         $data['total_untung']=$this->Order_model->sale();
         $data['jumlah_konfirmasi']=$this->Order_model->countKonfirmasi();
         
+        $this->load->model('Listkerja_model');
+        $data['selesai_dikerjakan']=$this->Listkerja_model->jumlah('1');
+        $data['belum_dikerjakan']=$this->Listkerja_model->jumlah('0');
         
+    
         $data['pages']='backend/dashboard/index';   
         $this->load->view('backend/layout',$data);    
     }

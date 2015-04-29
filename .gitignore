@@ -3,3 +3,5 @@
 /assets/*
 /application/config/*
 /application/views/*
+*.sql
+*.zip
